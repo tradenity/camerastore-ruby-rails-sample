@@ -26,11 +26,11 @@
 						<%= form_tag create_customer_path do  %>
 							<ul>
 								<li class="text-info">First Name: </li>
-								<li><%= text_field_tag 'customer[firstName]', @customer.firstName %></li>
+								<li><%= text_field_tag 'customer[first_name]', @customer.first_name %></li>
 							</ul>
 							<ul>
 								<li class="text-info">Last Name: </li>
-								<li><%= text_field_tag 'customer[lastName]', @customer.lastName %></li>
+								<li><%= text_field_tag 'customer[last_name]', @customer.last_name %></li>
 							</ul>
 							<ul>
 								<li class="text-info">Email: </li>
@@ -46,7 +46,7 @@
 							</ul>
 							<ul>
 								<li class="text-info">Re-enter Password:</li>
-								<li><%= password_field_tag 'customer[confirmPassword]' %></li>
+								<li><%= password_field_tag 'customer[confirm_password]' %></li>
 							</ul>
 
 							<input type="submit" value="REGISTER NOW"/>

@@ -19,8 +19,10 @@ Rails.application.routes.draw do
 
   get '/orders' => 'orders#index', as: 'orders'
   get '/orders/checkout' => 'orders#checkout', as: 'checkout'
+  post '/orders/create' => 'orders#create', as: 'create_order'
+  post '/orders/add_shipping' => 'orders#add_shipping', as: 'add_shipping'
+  post '/orders/add_payment' => 'orders#add_payment', as: 'add_payment'
   get '/orders/:id' => 'orders#show', as: 'order'
-  post '/orders' => 'orders#create'
   post '/orders/refund/:id' => 'orders#refund', as: 'refund'
 
 

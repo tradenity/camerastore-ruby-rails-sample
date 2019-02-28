@@ -4,8 +4,8 @@ class SessionController < ApplicationController
   end
 
   def create
-    customer = Customer.find_by_username(params[:username])
-    if customer != nil && customer.valid_password?(params[:password])
+    customer = Customer.find_one_by(username: params[:username])
+    if customer != nil && valid_password?(customer.password, params[:password])
       session[:customer_id] = customer.id
       if session.has_key? :target_url
         target_url = session[:target_url]

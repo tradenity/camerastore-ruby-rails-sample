@@ -1,0 +1,10 @@
+<form id="shipping-method-form" action="/orders/add_shipping" method="post">
+  <ul>
+    <li class="text-info">Shipping method: </li>
+    <li><%= select_tag "shipping_method", options_from_collection_for_select(@shipping_methods, "id", "name") %></li>
+
+  </ul>
+  <p style="display: none;" id="shipping_error_message"></p>
+  <input type="submit" value="Submit" />
+</form>
+

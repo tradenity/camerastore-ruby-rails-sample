@@ -8,9 +8,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <html >
 <head>
   <title>Camerastore</title>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
-
   <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
   <title>Camera store e-commerce site | Tradenity sample application</title>
   <link href="/css/bootstrap.css" rel='stylesheet' type='text/css' />
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -22,6 +21,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="keywords" content="Camera Store e-commerce " />
+  <%= javascript_include_tag "application" %>
   <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
   <!--webfont-->
   <!-- for bootstrap working -->
@@ -88,7 +88,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
       <div class="header-right">
         <div class="cart box_1">
 
-          <h3> $<span id="cart_total" class="simpleCart_total" ><%= @cart.total %> </span> (<span id="cart_items_count" class="simpleCart_quantity"> <%= @cart.count %> </span><span>Items</span>)<img src="/images/bag.png" alt="" /></h3>
+          <h3> $<span id="cart_total" class="simpleCart_total" ><%= @cart.total / 100.0 %> </span> (<span id="cart_items_count" class="simpleCart_quantity"> <%= @cart.items.size %> </span><span>Items</span>)<img src="/images/bag.png" alt="" /></h3>
 
           <p><a href="/cart" class="simpleCart_empty">Your cart</a></p>
           <div class="clearfix"> </div>
@@ -120,7 +120,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
           <li><a href="/products">All</a></li>
           <% for cat in @categories %>
               <% if cat.name != 'Uncategorized' %>
-                  <li><a href="/categories/<%= cat.id %>" ><%= cat.title %></a></li>
+                  <li><a href="/categories/<%= cat.id %>" ><%= cat.name %></a></li>
               <% end %>
           <% end %>
           <li><a href="#" id="show_search_box"><span class="glyphicon glyphicon-search"></span></a></li>

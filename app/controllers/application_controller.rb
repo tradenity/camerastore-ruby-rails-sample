@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
 
-  before_filter :load_common_models
+  before_action :load_common_models
 
   rescue_from 'Tradenity::SessionExpiredException' , with: :handle_session_expiry
 

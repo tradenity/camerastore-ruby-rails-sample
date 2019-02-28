@@ -4,18 +4,18 @@ class CartController < ApplicationController
   end
 
   def create
-    cart = ShoppingCart.add(LineItem.new(product: Product.new(id: params[:product]), quantity: params[:quantity]))
+    cart = ShoppingCart.add_item(LineItem.new(product: Product.new(id: params[:product]), quantity: params[:quantity]))
 
     respond_to do |format|
-      msg = { total: cart.total, count: cart.count }
+      msg = { total: cart.total, count: cart.items.size }
       format.json  { render :json => msg }
     end
   end
 
   def delete
-    cart = ShoppingCart.remove(params[:id])
+    cart = ShoppingCart.delete_item(params[:id])
     respond_to do |format|
-      msg = { total: cart.total, count: cart.count }
+      msg = { total: cart.total, count: cart.items.size }
       format.json  { render :json => msg }
     end
   end
